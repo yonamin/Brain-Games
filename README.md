@@ -2,4 +2,4 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/yonamin/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/yonamin/frontend-project-lvl1/actions)
 
-[![.github/workflows/make-lint.yml](https://github.com/yonamin/frontend-project-lvl1/actions/workflows/make-lint.yml/badge.svg?event=push)](https://github.com/yonamin/frontend-project-lvl1/actions/workflows/make-lint.yml)
+[![Node.js CI](https://github.com/yonamin/frontend-project-lvl1/actions/workflows/nodejs.yml/badge.svg?branch=main&event=push)](https://github.com/yonamin/frontend-project-lvl1/actions/workflows/nodejs.yml)
