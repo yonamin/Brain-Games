@@ -3,3 +3,5 @@
 [![Actions Status](https://github.com/yonamin/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/yonamin/frontend-project-lvl1/actions)
 
 [![Node.js CI](https://github.com/yonamin/frontend-project-lvl1/actions/workflows/nodejs.yml/badge.svg?branch=main&event=push)](https://github.com/yonamin/frontend-project-lvl1/actions/workflows/nodejs.yml)
+
+https://asciinema.org/a/J43YMbg5hfsj4gzjdM343VarQ
