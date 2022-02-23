@@ -23,9 +23,9 @@ export default () => {
   let result;
   let correctCounter = 0;
   do {
-    const firstNum = getRandomNum(50);
-    const secondNum = getRandomNum(20);
-    const operator = operators[getRandomNum(3)];
+    const firstNum = getRandomNum(1, 50);
+    const secondNum = getRandomNum(1, 20);
+    const operator = operators[getRandomNum(0, 3)];
     const question = `${firstNum} ${operator} ${secondNum}`;
     const correctAnswer = String(calculate(operator, firstNum, secondNum));
     result = level(question, correctAnswer);

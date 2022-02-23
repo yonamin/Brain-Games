@@ -1,7 +1,9 @@
 import readlineSync from 'readline-sync';
 
-export function getRandomNum(max) {
-  return Math.floor(Math.random() * max);
+export function getRandomNum(min, max) {
+  const a = Math.ceil(min);
+  const b = Math.floor(max);
+  return Math.floor(Math.random() * (a - b)) + b;
 }
 
 let name;

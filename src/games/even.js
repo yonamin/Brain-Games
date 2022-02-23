@@ -11,7 +11,7 @@ export default () => {
   let result;
   let correctCounter = 0;
   do {
-    const question = getRandomNum(100);
+    const question = getRandomNum(1, 100);
     const correctAnswer = isEven(question);
     result = level(question, correctAnswer);
     if (result === 'true') {
