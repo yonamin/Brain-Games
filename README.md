@@ -5,3 +5,5 @@
 [![Node.js CI](https://github.com/yonamin/frontend-project-lvl1/actions/workflows/nodejs.yml/badge.svg?branch=main&event=push)](https://github.com/yonamin/frontend-project-lvl1/actions/workflows/nodejs.yml)
 
 <a href="https://asciinema.org/a/J43YMbg5hfsj4gzjdM343VarQ" target="_blank"><img src="https://asciinema.org/a/J43YMbg5hfsj4gzjdM343VarQ.svg" /></a>
+
+<a href="https://asciinema.org/a/471110" target="_blank"><img src="https://asciinema.org/a/471110.svg" /></a>
