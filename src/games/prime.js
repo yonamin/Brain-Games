@@ -4,6 +4,9 @@ import {
 
 const isPrime = (number) => {
   let result = 'yes';
+  if (number === 1) {
+    result = 'no';
+  }
   const half = Math.floor(number / 2);
   for (let i = half; i > 1; i -= 1) {
     if (number % i === 0) {
