@@ -25,6 +25,6 @@ export default () => {
     const correctAnswer = String(gcdCalc(firstNum, secondNum));
     const pair = [question, correctAnswer];
     return pair;
-  }
+  };
   game(task, buildPair);
 };

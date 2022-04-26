@@ -2,8 +2,6 @@ import {
   getRandomNum, game,
 } from '../index.js';
 
-
-
 export default () => {
   const task = 'What is the result of the expression?';
 
@@ -29,6 +27,6 @@ export default () => {
     const correctAnswer = String(calculate(operator, firstNum, secondNum));
     const pair = [question, correctAnswer];
     return pair;
-  }
+  };
   game(task, buildPair);
 };

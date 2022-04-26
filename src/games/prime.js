@@ -24,6 +24,6 @@ export default () => {
     const correctAnswer = isPrime(question);
     const pair = [question, correctAnswer];
     return pair;
-  }
+  };
   game(task, buildPair);
 };
