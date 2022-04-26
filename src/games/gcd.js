@@ -1,5 +1,5 @@
 import {
-  greeting, getRandomNum, level, finalMessage,
+  getRandomNum, game,
 } from '../index.js';
 
 const gcdCalc = (first, second) => {
@@ -16,20 +16,15 @@ const gcdCalc = (first, second) => {
 };
 
 export default () => {
-  greeting();
-  console.log('Find the greatest common divisor of given numbers.');
+  const task = 'Find the greatest common divisor of given numbers.';
 
-  let result;
-  let correctCounter = 0;
-  do {
+  const buildPair = () => {
     const firstNum = getRandomNum(1, 100);
     const secondNum = getRandomNum(1, 100);
     const question = `${firstNum} ${secondNum}`;
     const correctAnswer = String(gcdCalc(firstNum, secondNum));
-    result = level(question, correctAnswer);
-    if (result === 'true') {
-      correctCounter += 1;
-    }
-  } while (result === 'true' && correctCounter < 3);
-  finalMessage(correctCounter);
+    const pair = [question, correctAnswer];
+    return pair;
+  }
+  game(task, buildPair);
 };

@@ -1,4 +1,7 @@
 import readlineSync from 'readline-sync';
+import {
+  cons, car, cdr,
+} from '@hexlet/pairs';
 
 export function getRandomNum(min, max) {
   const a = Math.ceil(min);
@@ -27,7 +30,30 @@ export const level = (question, correctAnswer) => {
   return result;
 };
 
+
+
 export const finalMessage = (correctCounter) => {
   const message = (correctCounter === 3) ? `Congratulations, ${name}!` : `Let's try again, ${name}!`;
   console.log(message);
+};
+
+export const game = (task, pair) => {
+  greeting();
+  console.log(task);
+
+let result;
+let correctCounter = 0;
+
+do {
+  let couple = pair()
+  let quest = couple[0];
+  let answer = couple[1];
+  result = level(quest, answer);
+  if (result === 'true') {
+    correctCounter += 1;
+  }
+  
+} while (result === 'true' && correctCounter < 3);
+
+finalMessage(correctCounter);
 };

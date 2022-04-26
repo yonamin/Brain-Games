@@ -1,23 +1,18 @@
 import {
-  greeting, getRandomNum, level, finalMessage,
+  getRandomNum, game,
 } from '../index.js';
 
 const isEven = (num) => ((num % 2 === 0) ? 'yes' : 'no');
 
 export default () => {
-  greeting();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
-  let result;
-  let correctCounter = 0;
-  do {
-    const question = getRandomNum(1, 100);
-    const correctAnswer = isEven(question);
-    result = level(question, correctAnswer);
-    if (result === 'true') {
-      correctCounter += 1;
-    }
-  } while (result === 'true' && correctCounter < 3);
-
-  finalMessage(correctCounter);
+  const task = 'Answer "yes" if the number is even, otherwise answer "no".';
+  // здесь должна быть функция генерации пары вопрос-ответ
+  // а не просто сгенерированные один раз
+  const buildPair = () => {
+  const question = getRandomNum(1, 100);
+  const correctAnswer = isEven(question);
+  const pair = [question, correctAnswer];
+  return pair
+  };
+  game(task, buildPair);
 };

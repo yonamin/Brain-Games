@@ -1,5 +1,5 @@
 import {
-  greeting, getRandomNum, level, finalMessage,
+  getRandomNum, game,
 } from '../index.js';
 
 let spacedNum = 0;
@@ -19,22 +19,16 @@ const progression = (firstNum, step, space) => {
 };
 
 export default () => {
-  greeting();
-  console.log('What number is missing in the progression?');
+  const task = 'What number is missing in the progression?';
 
-  let result;
-  let correctCounter = 0;
-  do {
+  const buildPair = () => {
     const step = getRandomNum(1, 5);
     const firstNum = getRandomNum(1, 100);
     const space = getRandomNum(0, 9);
     const question = progression(firstNum, step, space).join(' ');
     const correctAnswer = String(spacedNum);
-    result = level(question, correctAnswer);
-    if (result === 'true') {
-      correctCounter += 1;
-    }
-  } while (result === 'true' && correctCounter < 3);
-
-  finalMessage(correctCounter);
+    const pair = [question, correctAnswer];
+    return pair;
+  };
+  game(task, buildPair);
 };
