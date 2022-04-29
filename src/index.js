@@ -13,7 +13,7 @@ const greeting = () => {
   console.log(`Hello, ${name}!`);
 };
 
-const round = (question, correctAnswer) => {
+const checkAnswer = (question, correctAnswer) => {
   let result;
   console.log(`Question: ${question}`);
   const answer = readlineSync.question('Your answer: ');
@@ -43,7 +43,7 @@ export const game = (task, pair) => {
     const couple = pair();
     const quest = couple[0];
     const answer = couple[1];
-    result = round(quest, answer);
+    result = checkAnswer(quest, answer);
     if (result === true) {
       correctCounter += 1;
     }
