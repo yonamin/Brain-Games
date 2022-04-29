@@ -7,27 +7,27 @@ export function getRandomNum(min, max) {
 }
 
 let name;
-export const greeting = () => {
+const greeting = () => {
   console.log('Welcome to the Brain Games!');
   name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
 };
 
-export const level = (question, correctAnswer) => {
+const round = (question, correctAnswer) => {
   let result;
   console.log(`Question: ${question}`);
   const answer = readlineSync.question('Your answer: ');
   if (answer === correctAnswer) {
     console.log('Correct!');
-    result = 'true';
+    result = true;
   } else {
     console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
-    result = 'false';
+    result = false;
   }
   return result;
 };
 
-export const finalMessage = (correctCounter) => {
+const finalMessage = (correctCounter) => {
   const message = (correctCounter === 3) ? `Congratulations, ${name}!` : `Let's try again, ${name}!`;
   console.log(message);
 };
@@ -43,11 +43,11 @@ export const game = (task, pair) => {
     const couple = pair();
     const quest = couple[0];
     const answer = couple[1];
-    result = level(quest, answer);
-    if (result === 'true') {
+    result = round(quest, answer);
+    if (result === true) {
       correctCounter += 1;
     }
-  } while (result === 'true' && correctCounter < 3);
+  } while (result === true && correctCounter < 3);
 
   finalMessage(correctCounter);
 };
