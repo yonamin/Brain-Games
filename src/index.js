@@ -6,34 +6,10 @@ export function getRandomNum(min, max) {
   return Math.floor(Math.random() * (a - b)) + b;
 }
 
-let name;
-const greeting = () => {
-  console.log('Welcome to the Brain Games!');
-  name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-};
-
-const checkAnswer = (question, correctAnswer) => {
-  let result;
-  console.log(`Question: ${question}`);
-  const answer = readlineSync.question('Your answer: ');
-  if (answer === correctAnswer) {
-    console.log('Correct!');
-    result = true;
-  } else {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
-    result = false;
-  }
-  return result;
-};
-
-const finalMessage = (correctCounter) => {
-  const message = (correctCounter === 3) ? `Congratulations, ${name}!` : `Let's try again, ${name}!`;
-  console.log(message);
-};
-
 export const game = (task, pair) => {
-  greeting();
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
   console.log(task);
 
   let result;
@@ -41,13 +17,23 @@ export const game = (task, pair) => {
 
   do {
     const couple = pair();
-    const quest = couple[0];
-    const answer = couple[1];
-    result = checkAnswer(quest, answer);
+    const question = couple[0];
+    const correctAnswer = couple[1];
+
+    console.log(`Question: ${question}`);
+    const answer = readlineSync.question('Your answer: ');
+    if (answer === correctAnswer) {
+      console.log('Correct!');
+      result = true;
+    } else {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
+      result = false;
+    }
     if (result === true) {
       correctCounter += 1;
     }
   } while (result === true && correctCounter < 3);
 
-  finalMessage(correctCounter);
+  const message = (correctCounter === 3) ? `Congratulations, ${name}!` : `Let's try again, ${name}!`;
+  console.log(message);
 };
