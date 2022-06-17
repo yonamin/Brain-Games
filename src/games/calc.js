@@ -1,8 +1,7 @@
-import {
-  getRandomNum, game,
-} from '../index.js';
+import { game } from '../index.js';
+import { getRandomNum } from '../utils.js';
 
-const task = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
 const operators = ['+', '-', '*'];
 const calculate = (oper, x, y) => {
@@ -19,14 +18,13 @@ const calculate = (oper, x, y) => {
 };
 
 export default () => {
-  const buildPair = () => {
-    const firstNum = getRandomNum(1, 50);
-    const secondNum = getRandomNum(1, 20);
-    const operator = operators[getRandomNum(0, 3)];
+  const getGameData = () => {
+    const firstNum = getRandomNum(50);
+    const secondNum = getRandomNum(20);
+    const operator = operators[getRandomNum(3, 0)];
     const question = `${firstNum} ${operator} ${secondNum}`;
     const correctAnswer = String(calculate(operator, firstNum, secondNum));
-    const pair = [question, correctAnswer];
-    return pair;
+    return [question, correctAnswer];
   };
-  game(task, buildPair);
+  game(description, getGameData);
 };

@@ -1,34 +1,33 @@
-import {
-  getRandomNum, game,
-} from '../index.js';
+import { game } from '../index.js';
+import { getRandomNum } from '../utils.js';
 
-let spacedNum = 0;
-const progression = (firstNum, step, space) => {
-  const prog = [firstNum];
+const getProgression = (firstNum, step, space) => {
+  let spacedNum = 0;
+  const progression = [firstNum];
   let currentNum = firstNum;
   for (let i = 0; i < 10; i += 1) {
     currentNum += step;
     if (i !== space) {
-      prog.push(currentNum);
+      progression.push(currentNum);
     } else {
-      prog.push('..');
+      progression.push('..');
       spacedNum = currentNum;
     }
   }
-  return prog;
+  return [progression, spacedNum];
 };
 
 export default () => {
-  const task = 'What number is missing in the progression?';
+  const description = 'What number is missing in the progression?';
 
-  const buildPair = () => {
-    const step = getRandomNum(1, 5);
-    const firstNum = getRandomNum(1, 100);
-    const space = getRandomNum(0, 9);
-    const question = progression(firstNum, step, space).join(' ');
-    const correctAnswer = String(spacedNum);
-    const pair = [question, correctAnswer];
-    return pair;
+  const getGameData = () => {
+    const step = getRandomNum(5);
+    const firstNum = getRandomNum(100);
+    const space = getRandomNum(9, 0);
+    const task = getProgression(firstNum, step, space)
+    const question = task[0].join(' ');
+    const correctAnswer = String(task[1]);
+    return [question, correctAnswer];
   };
-  game(task, buildPair);
+  game(description, getGameData);
 };

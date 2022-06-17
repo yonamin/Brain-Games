@@ -1,16 +1,14 @@
-import {
-  getRandomNum, game,
-} from '../index.js';
+import { game } from '../index.js';
+import { getRandomNum } from '../utils.js';
 
 const isEven = (num) => (num % 2 === 0);
 
 export default () => {
-  const task = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const buildPair = () => {
-    const question = getRandomNum(1, 100);
+  const description = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const getGameData = () => {
+    const question = getRandomNum(100);
     const correctAnswer = (isEven(question)) ? 'yes' : 'no';
-    const pair = [question, correctAnswer];
-    return pair;
+    return [question, correctAnswer];
   };
-  game(task, buildPair);
+  game(description, getGameData);
 };
