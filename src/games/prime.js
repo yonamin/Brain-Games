@@ -1,5 +1,5 @@
-import { game } from '../index.js';
-import { getRandomNum } from '../utils.js';
+import game from '../index.js';
+import getRandomNum from '../utils.js';
 
 const isPrime = (number) => {
   for (let i = 2; i < number; i += 1) {
@@ -13,7 +13,7 @@ export default () => {
 
   const getGameData = () => {
     const question = getRandomNum(100);
-    const correctAnswer = (isPrime(question)) ? 'yes' : 'no'; 
+    const correctAnswer = (isPrime(question)) ? 'yes' : 'no';
     return [question, correctAnswer];
   };
   game(description, getGameData);

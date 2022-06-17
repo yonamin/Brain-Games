@@ -1,5 +1,5 @@
-import { game } from '../index.js';
-import { getRandomNum } from '../utils.js';
+import game from '../index.js';
+import getRandomNum from '../utils.js';
 
 const getProgression = (firstNum, step, space) => {
   let spacedNum = 0;
@@ -24,7 +24,7 @@ export default () => {
     const step = getRandomNum(5);
     const firstNum = getRandomNum(100);
     const space = getRandomNum(9, 0);
-    const task = getProgression(firstNum, step, space)
+    const task = getProgression(firstNum, step, space);
     const question = task[0].join(' ');
     const correctAnswer = String(task[1]);
     return [question, correctAnswer];
